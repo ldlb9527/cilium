@@ -134,7 +134,6 @@ func (c *ConcurrentLogger) collector(ctx context.Context) {
 			c.nsTestMsgs[nsTest] = append(nsTestMsgs, m)
 			c.nsTestMsgsLock.Unlock()
 		case <-ctx.Done():
-			close(c.messageCh)
 			return
 		}
 	}
